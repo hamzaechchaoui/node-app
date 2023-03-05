@@ -1,3 +1,11 @@
+SECTION 2 :
+NodeJS Application - Problem
+Dockerfile
+Image and containers
+Docker commands
+
+----------------------------------------------------------------------------------------------------------------------------
+
 problem : 
 A new developer in joining a company, the dev needs to install all the technologies that requires to work in the application: 
     It will take alot of time.
@@ -14,7 +22,7 @@ Dockerfile is a file that tell the application how it can be run and what's the 
 
 RUN Dockerfile : Look .Dockerfile file
 
-docker build -t node-app : Run the dockerfile and install all the dependencies.
+docker build -t node-app . : Run the dockerfile and install all the dependencies.
 
 docker ps : show all the running containers.
 docker ps -a : show all the running and stopped containers.
@@ -41,3 +49,7 @@ No, so we add files that aren't needed like (.dockerfile, node_modules ...) to .
 
 -> Why did we split "package.json" copy command?
 Because when we run dockerfile, it will all times run npm install.
+
+To enter to the command line of the application in docker
+docker exec -it node-app-container bash
+-it : iteractive
