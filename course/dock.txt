@@ -1,0 +1,43 @@
+problem : 
+A new developer in joining a company, the dev needs to install all the technologies that requires to work in the application: 
+    It will take alot of time.
+    Installation Errors.
+    Problem of versions.
+    ...
+Deploy your app in testing, staging and production, you need to do the same process when you install it in the first time.
+
+Docker comes to solve this problem.
+The logo of docker is a ship, the idea behind that is that the ship can transfer things from place to another. The idea of docker is to transfert the application with all of it dependencies to another machine or another environment.
+
+To dockerise the application we need a dockerfile.
+Dockerfile is a file that tell the application how it can be run and what's the dependencies that need to be used
+
+RUN Dockerfile : Look .Dockerfile file
+
+docker build -t node-app : Run the dockerfile and install all the dependencies.
+
+docker ps : show all the running containers.
+docker ps -a : show all the running and stopped containers.
+
+docker image ls : list images
+docker stop container_name : stop the  container : container_name
+docker rm container_name -f : remove the container : container_name, -f : forced
+
+docker run --name node-app-container -d -p 1000:4000 node-app : run the image node-app that is existing in the container node-app-container, -d : to not show the logs in the console, -p 1000:4000 (run the port 4000 that is existing in the container into the port 1000 in the local ==> so we need to write localhost:1000)
+
+Image vs Container:
+-------------------
+
+In dockerfile we start by the base image, docker goes to dockerhub that store all the images that can be used in (FROM): (https://hub.docker.com)
+When we build the docker file, he creates the docker image.
+We can create from one image one or more containers with the command RUN
+2.PNG
+
+Questions:
+----------
+
+Do I need to copy all the files?
+No, so we add files that aren't needed like (.dockerfile, node_modules ...) to .dockerignore
+
+-> Why did we split "package.json" copy command?
+Because when we run dockerfile, it will all times run npm install.
