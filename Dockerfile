@@ -17,8 +17,10 @@ RUN npm install
 # Copy all the files into container
 COPY . .
 
+# Pass an env variable to the container
+# ENV PORT=4000
 # Define the port, just for documentation
-EXPOSE 4000
+EXPOSE $PORT
 
 # RUN the application
-CMD [ "npm", "start" ]
+CMD [ "npm", "run", "start-dev" ]

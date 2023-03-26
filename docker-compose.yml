@@ -1,0 +1,13 @@
+#version du docker compose
+#https://docs.docker.com/compose/compose-file/compose-versioning/
+version: '3'
+services:
+  node-app:
+    container_name: node-app-container
+    build: .
+    volumes: 
+      - ./src:/app/src:ro
+    ports:
+      - "1000:4000"
+    env_file:
+      - ./.env
